@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db678cd-c51a-4d2b-9800-94a87313b59a" name="Changes" comment="bon la j'ai pas envie de me prendre la tete">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/helpers/http.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/helpers/http.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_injection.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_injection.py" afterDir="false" />
-    </list>
+    <list default="true" id="3db678cd-c51a-4d2b-9800-94a87313b59a" name="Changes" comment="bon la j'ai pas envie de me prendre la tete" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +124,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1782136598650</updated>
-      <workItem from="1782136599661" duration="3961000" />
+      <workItem from="1782136599661" duration="4558000" />
     </task>
     <task id="LOCAL-00001" summary="bon la j'ai pas envie de me prendre la tete">
       <option name="closed" value="true" />
@@ -144,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782139764877</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="bon la j'ai pas envie de me prendre la tete">
+      <option name="closed" value="true" />
+      <created>1782140769759</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1782140769759</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

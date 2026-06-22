@@ -146,14 +146,17 @@ class TestParamInjection:
 
     def test_unicode_fullwidth_in_a(self, test_client):
         """Should reject Unicode full-width characters in a."""
+        fullwidth_chars = "\uff11\uff12\uff13"
         response = test_client.get(
-            f"/calculate?operation=add&a={quote('\uFF11\uFF12\uFF13')}&b=2"
+            "/calculate?operation=add&a=" + quote(fullwidth_chars) + "&b=2"
         )
         assert response.status_code == 422
 
     def test_null_byte_in_a(self, test_client):
         """Should reject null byte in a."""
-        response = test_client.get(f"/calculate?operation=add&a={quote('1\x00')}&b=2")
+        null_byte = "1\x00"
+        url = "/calculate?operation=add&a=" + quote(null_byte) + "&b=2"
+        response = test_client.get(url)
         assert response.status_code == 422
 
     def test_html_tags_in_a(self, test_client):
@@ -223,38 +226,44 @@ class TestUnicodeAttacks:
 
     def test_zero_width_space_in_operation(self, test_client):
         """Should reject operation with zero-width space."""
-        response = test_client.get(f"/calculate?operation={quote('add\u200B')}&a=1&b=2")
+        zws_op = "add\u200b"
+        response = test_client.get("/calculate?operation=" + quote(zws_op) + "&a=1&b=2")
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
     def test_zero_width_space_in_add(self, test_client):
         """Should reject operation with zero-width space in middle."""
-        response = test_client.get(
-            f"/calculate?operation={quote('a\u200Bd\u200Bd')}&a=1&b=2"
-        )
+        zws_op = "a\u200bd\u200bd"
+        response = test_client.get("/calculate?operation=" + quote(zws_op) + "&a=1&b=2")
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
     def test_control_characters_in_a(self, test_client):
         """Should reject control characters in a."""
-        response = test_client.get(f"/calculate?operation=add&a={quote('1\u0000')}&b=2")
+        null_char = "1\u0000"
+        url = "/calculate?operation=add&a=" + quote(null_char) + "&b=2"
+        response = test_client.get(url)
         assert response.status_code == 422
 
     def test_newline_in_operation(self, test_client):
         """Should reject newline in operation."""
-        response = test_client.get(f"/calculate?operation={quote('add\n')}&a=1&b=2")
+        newline_op = "add\n"
+        url = "/calculate?operation=" + quote(newline_op) + "&a=1&b=2"
+        response = test_client.get(url)
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
     def test_carriage_return_in_operation(self, test_client):
         """Should reject carriage return in operation."""
-        response = test_client.get(f"/calculate?operation={quote('add\r')}&a=1&b=2")
+        cr_op = "add\r"
+        response = test_client.get("/calculate?operation=" + quote(cr_op) + "&a=1&b=2")
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
     def test_tabulation_in_operation(self, test_client):
         """Should reject tabulation in operation."""
-        response = test_client.get(f"/calculate?operation={quote('add\t')}&a=1&b=2")
+        tab_op = "add\t"
+        response = test_client.get("/calculate?operation=" + quote(tab_op) + "&a=1&b=2")
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
