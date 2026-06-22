@@ -1,0 +1,92 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calculator-api-python"
+version = "1.0.0"
+description = "API de calculatrice avec tests unitaires - Traduction Python de calculator-api-js"
+readme = "README.md"
+license = {text = "ISC"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Loocist23"}
+]
+keywords = ["calculator", "api", "python", "fastapi", "testing", "pytest"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: ISC License (ISCL)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Framework :: FastAPI",
+]
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "httpx2>=0.1.0",
+    "black>=23.12.0",
+    "flake8>=6.1.0",
+    "isort>=5.13.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Loocist23/calculator-api-js"
+Documentation = "https://github.com/Loocist23/calculator-api-js#readme"
+Repository = "https://github.com/Loocist23/calculator-api-js.git"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["calculator_api_python*"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+known_first_party = ["src"]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = "E203"
+exclude = [".venv", "build", "dist"]
