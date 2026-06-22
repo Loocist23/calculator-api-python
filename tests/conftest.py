@@ -2,21 +2,22 @@
 Pytest configuration and fixtures for Calculator API tests
 """
 
-import pytest
-from fastapi.testclient import TestClient
-import sys
 import os
+import sys
 
-# Add src directory to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))  # noqa: E402
 
-from src.main import app
+import pytest  # noqa: E402
+from fastapi.testclient import TestClient  # noqa: E402
+
+from src.main import app  # noqa: E402
 
 
 @pytest.fixture
 def calculator():
     """Fixture providing a Calculator instance for unit tests."""
     from src.calculator import Calculator
+
     return Calculator()
 
 

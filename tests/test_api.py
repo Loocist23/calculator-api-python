@@ -5,6 +5,7 @@ Tests the API as an external client with real HTTP requests
 
 import pytest
 from fastapi.testclient import TestClient
+
 from src.main import app
 
 
@@ -23,16 +24,18 @@ class TestPerformance:
     def test_valid_request_under_100ms(self, test_client):
         """Should respond in less than 100ms for a valid request."""
         import time
+
         start = time.time()
-        response = test_client.get("/calculate?operation=add&a=1&b=2")
+        test_client.get("/calculate?operation=add&a=1&b=2")
         duration = (time.time() - start) * 1000  # Convert to ms
         assert duration < 100
 
     def test_error_400_request_under_100ms(self, test_client):
         """Should respond in less than 100ms for a 400 error request."""
         import time
+
         start = time.time()
-        response = test_client.get("/calculate?operation=modulo&a=1&b=2")
+        test_client.get("/calculate?operation=modulo&a=1&b=2")
         duration = (time.time() - start) * 1000  # Convert to ms
         assert duration < 100
 
@@ -52,7 +55,7 @@ class TestResponseHeaders:
 
     def test_cors_allow_origin_for_200(self, test_client):
         """Should have Access-Control-Allow-Origin for a 200 response.
-        
+
         Note: TestClient doesn't include CORS headers by default.
         In production with real HTTP requests, CORS headers are present.
         """
@@ -68,7 +71,7 @@ class TestResponseHeaders:
         assert response.status_code == 400
         assert "content-type" in response.headers
         assert "application/json" in response.headers["content-type"]
-    
+
     def test_content_type_for_422(self, test_client):
         """Should have correct Content-Type for a 422 response."""
         response = test_client.get("/calculate?operation=add&a=abc&b=3")
@@ -115,17 +118,22 @@ class TestOptionsPreflight:
 class TestCalculateNominal:
     """Tests for nominal GET /calculate cases."""
 
-    @pytest.mark.parametrize("operation,a,b,expected", [
-        ('add', 2, 3, 5),
-        ('subtract', 10, 4, 6),
-        ('multiply', 6, 7, 42),
-        ('divide', 20, 5, 4),
-        ('add', -5, -3, -8),
-        ('subtract', -5, -3, -2),
-        ('multiply', -3, -4, 12),
-        ('divide', -10, 2, -5),
-    ])
-    def test_operation_returns_correct_result(self, test_client, operation, a, b, expected):
+    @pytest.mark.parametrize(
+        "operation,a,b,expected",
+        [
+            ("add", 2, 3, 5),
+            ("subtract", 10, 4, 6),
+            ("multiply", 6, 7, 42),
+            ("divide", 20, 5, 4),
+            ("add", -5, -3, -8),
+            ("subtract", -5, -3, -2),
+            ("multiply", -3, -4, 12),
+            ("divide", -10, 2, -5),
+        ],
+    )
+    def test_operation_returns_correct_result(
+        self, test_client, operation, a, b, expected
+    ):
         """Should return correct result for operation(a, b)."""
         response = test_client.get(f"/calculate?operation={operation}&a={a}&b={b}")
         assert response.status_code == 200
@@ -198,7 +206,7 @@ class TestCalculateErrors:
     """Tests for error cases in GET /calculate."""
 
     def test_missing_b_parameter(self, test_client):
-        """Should return 422 if b is missing (FastAPI returns 422 for missing required params)."""
+        """Should return 422 if b is missing."""
         response = test_client.get("/calculate?operation=add&a=2")
         assert response.status_code == 422
 
@@ -208,7 +216,7 @@ class TestCalculateErrors:
         assert response.status_code == 422
 
     def test_non_numeric_a(self, test_client):
-        """Should return 422 if a is non-numeric (FastAPI returns 422 for invalid types)."""
+        """Should return 422 if a is non-numeric."""
         response = test_client.get("/calculate?operation=add&a=abc&b=3")
         assert response.status_code == 422
 
@@ -266,7 +274,7 @@ class TestOtherRoutes:
         assert data["detail"] == "Not Found"
 
     def test_calculate_with_trailing_slash_returns_422(self, test_client):
-        """Should return 422 for /calculate/ with trailing slash (parameters missing)."""
+        """Should return 422 for /calculate/ with trailing slash."""
         response = test_client.get("/calculate/")
         assert response.status_code == 422
         data = response.json()
@@ -285,7 +293,7 @@ class TestEdgeCases:
         assert response.status_code == 200
         data = response.json()
         # Result can be null, "Infinity", or Infinity
-        assert data["result"] in [None, "Infinity", float('inf')]
+        assert data["result"] in [None, "Infinity", float("inf")]
 
     def test_negative_zero(self, test_client):
         """Should handle a=-0 correctly."""

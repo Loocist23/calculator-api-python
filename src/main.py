@@ -6,7 +6,6 @@ Uses FastAPI framework with Uvicorn
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
-import time
 
 from .calculator import Calculator
 
@@ -31,24 +30,26 @@ VALID_OPERATIONS = {"add", "subtract", "multiply", "divide"}
 
 @app.get("/calculate")
 async def calculate(
-    operation: str = Query(..., description="Operation to perform: add, subtract, multiply, divide"),
+    operation: str = Query(
+        ..., description="Operation to perform: add, subtract, multiply, divide"
+    ),
     a: float = Query(..., description="First operand"),
     b: float = Query(..., description="Second operand"),
 ):
     """
     Perform a calculation operation.
-    
+
     This endpoint performs basic arithmetic operations (add, subtract, multiply, divide)
     on two numbers provided as query parameters.
-    
+
     Args:
         operation: The operation to perform (add, subtract, multiply, divide)
         a: First operand (numeric)
         b: Second operand (numeric)
-        
+
     Returns:
         JSON object with operation, operands, and result
-        
+
     Raises:
         HTTPException 400: If operation is unknown or division by zero
     """
@@ -56,9 +57,9 @@ async def calculate(
     if operation not in VALID_OPERATIONS:
         raise HTTPException(
             status_code=400,
-            detail="Opération inconnue. Utiliser : add, subtract, multiply, divide"
+            detail="Opération inconnue. Utiliser : add, subtract, multiply, divide",
         )
-    
+
     # Execute operation
     try:
         if operation == "add":
@@ -72,22 +73,17 @@ async def calculate(
         else:
             # This should never be reached due to validation above
             raise HTTPException(status_code=400, detail="Opération inconnue")
-        
+
         # Handle special float values
         if isinstance(result, float):
             # Check for infinity
-            if result == float('inf') or result == float('-inf'):
-                result = "Infinity" if result == float('inf') else "-Infinity"
+            if result == float("inf") or result == float("-inf"):
+                result = "Infinity" if result == float("inf") else "-Infinity"
             # Check for NaN
             elif result != result:  # NaN check
                 result = None
-        
-        return {
-            "operation": operation,
-            "a": a,
-            "b": b,
-            "result": result
-        }
+
+        return {"operation": operation, "a": a, "b": b, "result": result}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -104,7 +100,7 @@ async def calculate_options():
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        }
+        },
     )
 
 
@@ -122,9 +118,9 @@ def request_handler_logic(request: Request):
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "GET, OPTIONS",
                 "Access-Control-Allow-Headers": "Content-Type, Authorization",
-            }
+            },
         )
-    
+
     if request.method != "GET":
         return JSONResponse(
             status_code=405,
@@ -133,21 +129,22 @@ def request_handler_logic(request: Request):
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "GET, OPTIONS",
                 "Access-Control-Allow-Headers": "Content-Type, Authorization",
-                "Allow": "GET, OPTIONS"
+                "Allow": "GET, OPTIONS",
             },
-            content={"error": "Méthode non autorisée. Utiliser GET."}
+            content={"error": "Méthode non autorisée. Utiliser GET."},
         )
-    
+
     # This would be handled by FastAPI's routing
     # For testing purposes, we return a placeholder
     return JSONResponse(
         status_code=404,
         headers={"Content-Type": "application/json; charset=utf-8"},
-        content={"error": "Route introuvable."}
+        content={"error": "Route introuvable."},
     )
 
 
 # Export for tests
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=3000)

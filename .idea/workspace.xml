@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db678cd-c51a-4d2b-9800-94a87313b59a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/calculator-api-python.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    <list default="true" id="3db678cd-c51a-4d2b-9800-94a87313b59a" name="Changes" comment="bon la j'ai pas envie de me prendre la tete">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/helpers/http.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/helpers/http.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_calculator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_injection.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_injection.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,25 +23,37 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Loocist23"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Loocist23/calculator-api-python.git",
+    "accountId": "db5b21fe-9590-4978-9d66-e494bebb6650"
+  }
+}]]></component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="7.078760007043119E-7" />
-      <entry key="MS500" value="0.058883204619050535" />
-      <entry key="S2" value="0.4926039153746005" />
-      <entry key="S5" value="0.7533541094580816" />
-      <entry key="S10" value="0.8684269268182252" />
-      <entry key="S30" value="1.3386999679047256" />
-      <entry key="S60" value="3.2252273460790577" />
-      <entry key="M2" value="6.826410957411689" />
-      <entry key="M5" value="12.621488013755982" />
-      <entry key="M10" value="19.47885297527894" />
-      <entry key="M15" value="24.949565907883805" />
-      <entry key="M30" value="34.67663174140398" />
-      <entry key="H1" value="42.34200753537592" />
-      <entry key="H2" value="47.22391320356797" />
-      <entry key="H4" value="49.98933071765958" />
-      <entry key="D1" value="52.48017401952484" />
-      <entry key="W1" value="52.92528320599285" />
+      <entry key="MS100" value="1.6194766894818549" />
+      <entry key="MS500" value="3.4008147368467077" />
+      <entry key="S2" value="4.49385934752279" />
+      <entry key="S5" value="5.233114766428468" />
+      <entry key="S10" value="6.898887500161732" />
+      <entry key="S30" value="10.431094356627312" />
+      <entry key="S60" value="12.355520763796825" />
+      <entry key="M2" value="15.507037767856794" />
+      <entry key="M5" value="24.159458582368593" />
+      <entry key="M10" value="34.32419790230528" />
+      <entry key="M15" value="41.718946036455336" />
+      <entry key="M30" value="54.873453326644885" />
+      <entry key="H1" value="65.56332936179024" />
+      <entry key="H2" value="72.55121213873707" />
+      <entry key="H4" value="76.57202803342972" />
+      <entry key="D1" value="80.23173436962776" />
+      <entry key="W1" value="80.88947882248014" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -61,23 +75,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0000000000965454" />
-      <entry key="MS500" value="1.0099299350727005" />
-      <entry key="S2" value="1.3156723927865202" />
-      <entry key="S5" value="1.6305138954863347" />
-      <entry key="S10" value="1.7945157111939354" />
-      <entry key="S30" value="2.31071168152968" />
-      <entry key="S60" value="4.2105417786433765" />
-      <entry key="M2" value="7.818712438430011" />
-      <entry key="M5" value="13.618191121382925" />
-      <entry key="M10" value="20.477011730590842" />
-      <entry key="M15" value="25.94822251412539" />
-      <entry key="M30" value="35.67585375515804" />
-      <entry key="H1" value="43.341576326362706" />
-      <entry key="H2" value="48.22368416089767" />
-      <entry key="H4" value="50.989212394978686" />
-      <entry key="D1" value="53.480153729065904" />
-      <entry key="W1" value="53.925280292814385" />
+      <entry key="MS100" value="1.5610252995008393" />
+      <entry key="MS500" value="3.378769227497297" />
+      <entry key="S2" value="4.48711073762391" />
+      <entry key="S5" value="5.229886594569271" />
+      <entry key="S10" value="6.896542504860757" />
+      <entry key="S30" value="10.429783549534985" />
+      <entry key="S60" value="12.354642691592884" />
+      <entry key="M2" value="15.50575486142622" />
+      <entry key="M5" value="24.15732050794019" />
+      <entry key="M10" value="34.322263488200214" />
+      <entry key="M15" value="41.71731866979116" />
+      <entry key="M30" value="54.87238683790155" />
+      <entry key="H1" value="65.56270573529477" />
+      <entry key="H2" value="72.55087259628317" />
+      <entry key="H4" value="76.57185052807499" />
+      <entry key="D1" value="80.23170363392796" />
+      <entry key="W1" value="80.88947440238924" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
@@ -120,11 +134,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1782136598650</updated>
-      <workItem from="1782136599661" duration="2972000" />
+      <workItem from="1782136599661" duration="3961000" />
     </task>
+    <task id="LOCAL-00001" summary="bon la j'ai pas envie de me prendre la tete">
+      <option name="closed" value="true" />
+      <created>1782139764877</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1782139764877</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bon la j'ai pas envie de me prendre la tete" />
+    <option name="LAST_COMMIT_MESSAGE" value="bon la j'ai pas envie de me prendre la tete" />
   </component>
 </project>

@@ -3,10 +3,12 @@ Security tests - Injection and vulnerabilities
 Tests the API's resistance to injection attacks
 """
 
+from urllib.parse import quote
+
 import pytest
 from fastapi.testclient import TestClient
+
 from src.main import app
-from urllib.parse import quote
 
 
 @pytest.fixture
@@ -144,7 +146,9 @@ class TestParamInjection:
 
     def test_unicode_fullwidth_in_a(self, test_client):
         """Should reject Unicode full-width characters in a."""
-        response = test_client.get(f"/calculate?operation=add&a={quote('\uFF11\uFF12\uFF13')}&b=2")
+        response = test_client.get(
+            f"/calculate?operation=add&a={quote('\uFF11\uFF12\uFF13')}&b=2"
+        )
         assert response.status_code == 422
 
     def test_null_byte_in_a(self, test_client):
@@ -154,7 +158,9 @@ class TestParamInjection:
 
     def test_html_tags_in_a(self, test_client):
         """Should reject HTML tags in a."""
-        response = test_client.get("/calculate?operation=add&a=<script>alert(1)</script>&b=2")
+        response = test_client.get(
+            "/calculate?operation=add&a=<script>alert(1)</script>&b=2"
+        )
         assert response.status_code == 422
 
     def test_quotes_in_a(self, test_client):
@@ -182,7 +188,7 @@ class TestLongStringAttacks:
     @pytest.fixture
     def long_string(self):
         """Create a very long string for testing."""
-        return 'a' * 10000
+        return "a" * 10000
 
     def test_long_operation(self, test_client, long_string):
         """Should reject operation with very long string."""
@@ -202,7 +208,7 @@ class TestLongStringAttacks:
 
     def test_large_valid_number(self, test_client):
         """Should handle very large but valid numbers."""
-        large_number = '9' * 50
+        large_number = "9" * 50
         response = test_client.get(f"/calculate?operation=add&a={large_number}&b=1")
         assert response.status_code == 200
         data = response.json()
@@ -223,7 +229,9 @@ class TestUnicodeAttacks:
 
     def test_zero_width_space_in_add(self, test_client):
         """Should reject operation with zero-width space in middle."""
-        response = test_client.get(f"/calculate?operation={quote('a\u200Bd\u200Bd')}&a=1&b=2")
+        response = test_client.get(
+            f"/calculate?operation={quote('a\u200Bd\u200Bd')}&a=1&b=2"
+        )
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
@@ -292,20 +300,24 @@ class TestXSSAttacks:
 
     def test_xss_in_operation(self, test_client):
         """Should reject XSS in operation."""
-        response = test_client.get("/calculate?operation=<script>alert(1)</script>&a=1&b=2")
+        response = test_client.get(
+            "/calculate?operation=<script>alert(1)</script>&a=1&b=2"
+        )
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
     def test_xss_img_tag_in_operation(self, test_client):
         """Should reject XSS with img tag in operation."""
-        payload = '<img src=x onerror=alert(1)>'
+        payload = "<img src=x onerror=alert(1)>"
         response = test_client.get(f"/calculate?operation={quote(payload)}&a=1&b=2")
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
     def test_xss_in_a(self, test_client):
         """Should reject XSS in a."""
-        response = test_client.get("/calculate?operation=add&a=<script>alert(1)</script>&b=2")
+        response = test_client.get(
+            "/calculate?operation=add&a=<script>alert(1)</script>&b=2"
+        )
         assert response.status_code == 422
 
     def test_javascript_url_in_operation(self, test_client):
@@ -316,7 +328,7 @@ class TestXSSAttacks:
 
     def test_onerror_in_operation(self, test_client):
         """Should reject onerror in operation."""
-        payload = 'add onerror=alert(1)'
+        payload = "add onerror=alert(1)"
         response = test_client.get(f"/calculate?operation={quote(payload)}&a=1&b=2")
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
@@ -371,7 +383,7 @@ class TestPathTraversal:
 
     def test_null_byte_injection_in_operation(self, test_client):
         """Should reject null byte injection in operation."""
-        payload = 'add\x00malicious'
+        payload = "add\x00malicious"
         response = test_client.get(f"/calculate?operation={quote(payload)}&a=1&b=2")
         assert response.status_code == 400
 
@@ -384,21 +396,21 @@ class TestCommandInjection:
 
     def test_pipe_injection(self, test_client):
         """Should reject pipe character injection."""
-        payload = 'add|cat /etc/passwd'
+        payload = "add|cat /etc/passwd"
         response = test_client.get(f"/calculate?operation={quote(payload)}&a=1&b=2")
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
     def test_semicolon_command_injection(self, test_client):
         """Should reject semicolon command injection."""
-        payload = 'add; ls'
+        payload = "add; ls"
         response = test_client.get(f"/calculate?operation={quote(payload)}&a=1&b=2")
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
 
     def test_double_ampersand_injection(self, test_client):
         """Should reject && command injection."""
-        payload = 'add && rm -rf /'
+        payload = "add && rm -rf /"
         response = test_client.get(f"/calculate?operation={quote(payload)}&a=1&b=2")
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]
@@ -604,6 +616,8 @@ class TestVariations:
 
     def test_space_operation(self, test_client):
         """Should reject operation with space."""
-        response = test_client.get(f"/calculate?operation={quote('add operation')}&a=1&b=2")
+        response = test_client.get(
+            f"/calculate?operation={quote('add operation')}&a=1&b=2"
+        )
         assert response.status_code == 400
         assert "Opération inconnue" in response.json()["detail"]

@@ -3,8 +3,10 @@ Unit tests for the Calculator class
 Tests the business logic in isolation (without HTTP)
 """
 
-import pytest
 import math
+
+import pytest
+
 from src.calculator import Calculator
 
 
@@ -20,19 +22,22 @@ def calculator():
 class TestAdd:
     """Tests for the add method."""
 
-    @pytest.mark.parametrize("a,b,expected", [
-        (2, 3, 5),
-        (-5, -3, -8),
-        (-5, 3, -2),
-        (7, 0, 7),
-        (0.1, 0.2, pytest.approx(0.3)),
-    ])
+    @pytest.mark.parametrize(
+        "a,b,expected",
+        [
+            (2, 3, 5),
+            (-5, -3, -8),
+            (-5, 3, -2),
+            (7, 0, 7),
+            (0.1, 0.2, pytest.approx(0.3)),
+        ],
+    )
     def test_add_returns_correct_result(self, calculator, a, b, expected):
         """Should return a + b = expected."""
         assert calculator.add(a, b) == expected
 
     def test_add_with_null_coercion(self, calculator):
-        """In Python, None + int raises TypeError, unlike JS where null is coerced to 0."""
+        """In Python, None + int raises TypeError, unlike JS."""
         with pytest.raises(TypeError):
             calculator.add(None, 2)
 
@@ -43,13 +48,16 @@ class TestAdd:
 class TestSubtract:
     """Tests for the subtract method."""
 
-    @pytest.mark.parametrize("a,b,expected", [
-        (10, 4, 6),
-        (3, 10, -7),
-        (5, 0, 5),
-        (-5, -3, -2),
-        (0.3, 0.1, pytest.approx(0.2)),
-    ])
+    @pytest.mark.parametrize(
+        "a,b,expected",
+        [
+            (10, 4, 6),
+            (3, 10, -7),
+            (5, 0, 5),
+            (-5, -3, -2),
+            (0.3, 0.1, pytest.approx(0.2)),
+        ],
+    )
     def test_subtract_returns_correct_result(self, calculator, a, b, expected):
         """Should return a - b = expected."""
         assert calculator.subtract(a, b) == expected
@@ -66,13 +74,16 @@ class TestSubtract:
 class TestMultiply:
     """Tests for the multiply method."""
 
-    @pytest.mark.parametrize("a,b,expected", [
-        (6, 7, 42),
-        (0, 999, 0),
-        (-3, -4, 12),
-        (3, -4, -12),
-        (0.1, 0.2, pytest.approx(0.02)),
-    ])
+    @pytest.mark.parametrize(
+        "a,b,expected",
+        [
+            (6, 7, 42),
+            (0, 999, 0),
+            (-3, -4, 12),
+            (3, -4, -12),
+            (0.1, 0.2, pytest.approx(0.02)),
+        ],
+    )
     def test_multiply_returns_correct_result(self, calculator, a, b, expected):
         """Should return a * b = expected."""
         assert calculator.multiply(a, b) == expected
@@ -86,7 +97,7 @@ class TestMultiply:
 
     def test_multiply_with_nan(self, calculator):
         """Multiplying NaN with a number returns NaN."""
-        result = calculator.multiply(float('nan'), 5)
+        result = calculator.multiply(float("nan"), 5)
         assert math.isnan(result)
 
 
@@ -96,13 +107,16 @@ class TestMultiply:
 class TestDivide:
     """Tests for the divide method."""
 
-    @pytest.mark.parametrize("a,b,expected", [
-        (20, 5, 4),
-        (0, 5, 0),
-        (-10, -2, 5),
-        (-7, 2, -3.5),
-        (10, 3, pytest.approx(3.3333333333)),
-    ])
+    @pytest.mark.parametrize(
+        "a,b,expected",
+        [
+            (20, 5, 4),
+            (0, 5, 0),
+            (-10, -2, 5),
+            (-7, 2, -3.5),
+            (10, 3, pytest.approx(3.3333333333)),
+        ],
+    )
     def test_divide_returns_correct_result(self, calculator, a, b, expected):
         """Should return a / b ≈ expected."""
         assert calculator.divide(a, b) == expected
@@ -119,7 +133,7 @@ class TestDivide:
 
     def test_divide_nan_by_number(self, calculator):
         """Dividing NaN by a number returns NaN."""
-        result = calculator.divide(float('nan'), 5)
+        result = calculator.divide(float("nan"), 5)
         assert math.isnan(result)
 
 
@@ -135,7 +149,7 @@ class TestTypeCoercion:
         assert result == "53"
 
     def test_add_null_type_error(self, calculator):
-        """In Python, None + number raises TypeError (unlike JS which coerces null to 0)."""
+        """In Python, None + number raises TypeError."""
         with pytest.raises(TypeError):
             calculator.add(None, 2)
 
@@ -153,7 +167,7 @@ class TestTypeCoercion:
 
     def test_divide_nan_propagation(self, calculator):
         """NaN in division propagates."""
-        result = calculator.divide(float('nan'), 5)
+        result = calculator.divide(float("nan"), 5)
         assert math.isnan(result)
 
 
