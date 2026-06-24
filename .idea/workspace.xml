@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db678cd-c51a-4d2b-9800-94a87313b59a" name="Changes" comment="bon la j'ai pas envie de me prendre la tete">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
-    </list>
+    <list default="true" id="3db678cd-c51a-4d2b-9800-94a87313b59a" name="Changes" comment="bon la j'ai pas envie de me prendre la tete" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +124,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1782136598650</updated>
-      <workItem from="1782136599661" duration="4795000" />
+      <workItem from="1782136599661" duration="4908000" />
     </task>
     <task id="LOCAL-00001" summary="bon la j'ai pas envie de me prendre la tete">
       <option name="closed" value="true" />
@@ -160,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782141313621</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="bon la j'ai pas envie de me prendre la tete">
+      <option name="closed" value="true" />
+      <created>1782141401444</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1782141401444</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

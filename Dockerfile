@@ -31,6 +31,7 @@ ENV PATH=/home/appuser/.local/bin:$PATH
 
 # Copy application code
 COPY src/ ./src/
+COPY tests/ ./tests/
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
@@ -50,5 +51,5 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD python -c "import httpx; httpx.get('http://localhost:3000/calculate?operation=add&a=1&b=2', timeout=5).raise_for_status()" || exit 1
 
-# Start the application
-CMD ["python", "-m", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "3000"]
+# Start the application (run tests first)
+CMD ["sh", "-c", "pytest tests/ -v && python -m uvicorn src.main:app --host 0.0.0.0 --port 3000"]
