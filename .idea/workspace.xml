@@ -4,46 +4,53 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db678cd-c51a-4d2b-9800-94a87313b59a" name="Changes" comment="bon la j'ai pas envie de me prendre la tete" />
+    <list default="true" id="3db678cd-c51a-4d2b-9800-94a87313b59a" name="Changes" comment="lance les test direct quand le docker ce lance">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/home/loocist/Documents/test-js/calculator-api-python" value="3FUjZYpqDdhKxywyG53RTuLFxrH" />
+    </persistenceIdMap>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Loocist23"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Loocist23&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Loocist23/calculator-api-python.git",
-    "accountId": "db5b21fe-9590-4978-9d66-e494bebb6650"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Loocist23/calculator-api-python.git&quot;,
+    &quot;accountId&quot;: &quot;db5b21fe-9590-4978-9d66-e494bebb6650&quot;
   }
-}]]></component>
+}</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.6194766894818549" />
-      <entry key="MS500" value="3.4008147368467077" />
-      <entry key="S2" value="4.49385934752279" />
-      <entry key="S5" value="5.233114766428468" />
-      <entry key="S10" value="6.898887500161732" />
-      <entry key="S30" value="10.431094356627312" />
-      <entry key="S60" value="12.355520763796825" />
-      <entry key="M2" value="15.507037767856794" />
-      <entry key="M5" value="24.159458582368593" />
-      <entry key="M10" value="34.32419790230528" />
-      <entry key="M15" value="41.718946036455336" />
-      <entry key="M30" value="54.873453326644885" />
-      <entry key="H1" value="65.56332936179024" />
-      <entry key="H2" value="72.55121213873707" />
-      <entry key="H4" value="76.57202803342972" />
-      <entry key="D1" value="80.23173436962776" />
-      <entry key="W1" value="80.88947882248014" />
+      <entry key="MS100" value="1.4835453916605734" />
+      <entry key="MS500" value="3.849791486167054" />
+      <entry key="S2" value="9.21026780237366" />
+      <entry key="S5" value="14.900485604247406" />
+      <entry key="S10" value="19.964840687149128" />
+      <entry key="S30" value="27.84867448924377" />
+      <entry key="S60" value="31.65439474846295" />
+      <entry key="M2" value="35.884594883393895" />
+      <entry key="M5" value="45.24025569056716" />
+      <entry key="M10" value="55.70905084818147" />
+      <entry key="M15" value="63.23378522344861" />
+      <entry key="M30" value="76.56421956544057" />
+      <entry key="H1" value="87.38164363229296" />
+      <entry key="H2" value="94.45152210517297" />
+      <entry key="H4" value="98.51963757069306" />
+      <entry key="D1" value="102.22261646710915" />
+      <entry key="W1" value="102.88816634999154" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -65,51 +72,53 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5610252995008393" />
-      <entry key="MS500" value="3.378769227497297" />
-      <entry key="S2" value="4.48711073762391" />
-      <entry key="S5" value="5.229886594569271" />
-      <entry key="S10" value="6.896542504860757" />
-      <entry key="S30" value="10.429783549534985" />
-      <entry key="S60" value="12.354642691592884" />
-      <entry key="M2" value="15.50575486142622" />
-      <entry key="M5" value="24.15732050794019" />
-      <entry key="M10" value="34.322263488200214" />
-      <entry key="M15" value="41.71731866979116" />
-      <entry key="M30" value="54.87238683790155" />
-      <entry key="H1" value="65.56270573529477" />
-      <entry key="H2" value="72.55087259628317" />
-      <entry key="H4" value="76.57185052807499" />
-      <entry key="D1" value="80.23170363392796" />
-      <entry key="W1" value="80.88947440238924" />
+      <entry key="MS100" value="1.43608158065602" />
+      <entry key="MS500" value="3.7409993444368195" />
+      <entry key="S2" value="9.100719247525186" />
+      <entry key="S5" value="14.828577451202966" />
+      <entry key="S10" value="19.91853291696061" />
+      <entry key="S30" value="27.829196650481776" />
+      <entry key="S60" value="31.64383984728754" />
+      <entry key="M2" value="35.87835736983533" />
+      <entry key="M5" value="45.2361249529127" />
+      <entry key="M10" value="55.706110962268276" />
+      <entry key="M15" value="63.23148309728565" />
+      <entry key="M30" value="76.56281218904101" />
+      <entry key="H1" value="87.38084827336934" />
+      <entry key="H2" value="94.45109629493554" />
+      <entry key="H4" value="98.51941681837887" />
+      <entry key="D1" value="102.22257850663861" />
+      <entry key="W1" value="102.88816089735809" />
     </decayedShown>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4,
-  "fromUser": false
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3FUjZYpqDdhKxywyG53RTuLFxrH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/loocist/Documents/test-js/calculator-api-python&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -125,6 +134,8 @@
       <option name="presentableId" value="Default" />
       <updated>1782136598650</updated>
       <workItem from="1782136599661" duration="4908000" />
+      <workItem from="1782291908059" duration="406000" />
+      <workItem from="1782307550872" duration="113000" />
     </task>
     <task id="LOCAL-00001" summary="bon la j'ai pas envie de me prendre la tete">
       <option name="closed" value="true" />
@@ -166,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782141401444</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="lance les test direct quand le docker ce lance">
+      <option name="closed" value="true" />
+      <created>1782291934806</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1782291934806</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +193,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bon la j'ai pas envie de me prendre la tete" />
-    <option name="LAST_COMMIT_MESSAGE" value="bon la j'ai pas envie de me prendre la tete" />
+    <MESSAGE value="lance les test direct quand le docker ce lance" />
+    <option name="LAST_COMMIT_MESSAGE" value="lance les test direct quand le docker ce lance" />
   </component>
 </project>
